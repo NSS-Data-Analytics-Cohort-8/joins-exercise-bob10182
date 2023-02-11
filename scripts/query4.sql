@@ -50,7 +50,7 @@ LIMIT 1;
 -- table. Your result set should include all of the distributors, whether or not they have any movies in the movies table.
 SELECT p1.company_name,COUNT(p2.movie_id) AS total_movies
 FROM distributors AS p1
-JOIN specs AS p2
+LEFT JOIN specs AS p2
 ON p2.domestic_distributor_id = p1.distributor_id
 GROUP BY p1.company_name
 ORDER BY p1.company_name;
