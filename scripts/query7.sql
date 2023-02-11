@@ -81,4 +81,9 @@ ORDER BY movie_count;
 --ANSWER: Part 2. Dirty Dancing by Vestron Pictures from Chicago, Illinois with IMDB 7.0 rating
 
 -- 7. Which have a higher average rating, movies which are over two hours long or movies which are under two hours?
-
+SELECT COUNT(p1.film_title),ROUND(AVG(p2.imdb_rating),2)AS avg_rating,p1.length_in_min
+FROM specs AS p1
+JOIN rating AS p2
+ON p1.movie_id=p2.movie_id
+Group By p1.length_in_min,film_title
+ORDER BY avg_rating DESC;
